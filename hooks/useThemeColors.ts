@@ -76,7 +76,9 @@ export const useThemeColors = () => {
     try {
       setIsLoading(true);
       setError(null);
+      console.log("useThemeColors: Loading theme config from Firebase...");
       const themeConfig = await getThemeConfig();
+      console.log("useThemeColors: Firebase theme config loaded:", themeConfig);
       setConfig(themeConfig);
     } catch (err) {
       console.error("Error loading theme config:", err);
@@ -91,6 +93,10 @@ export const useThemeColors = () => {
         createdBy: "system",
         version: 1,
       };
+      console.log(
+        "useThemeColors: Using fallback config due to error:",
+        fallbackConfig
+      );
       setConfig(fallbackConfig);
     } finally {
       setIsLoading(false);
@@ -105,44 +111,73 @@ export const useThemeColors = () => {
 
     const root = document.documentElement;
 
-    // Convert hex colors to HSL and apply CSS custom properties
-    root.style.setProperty("--primary", hexToHsl(colors.primary));
-    root.style.setProperty("--secondary", hexToHsl(colors.secondary));
-    root.style.setProperty("--accent", hexToHsl(colors.accent));
-    root.style.setProperty("--background", hexToHsl(colors.background));
-    root.style.setProperty("--foreground", hexToHsl(colors.text));
-    root.style.setProperty("--muted", hexToHsl(colors.muted));
+    // Convert hex colors to HSL and apply CSS custom properties with !important
+    root.style.setProperty("--primary", hexToHsl(colors.primary), "important");
+    root.style.setProperty(
+      "--secondary",
+      hexToHsl(colors.secondary),
+      "important"
+    );
+    root.style.setProperty("--accent", hexToHsl(colors.accent), "important");
+    root.style.setProperty(
+      "--background",
+      hexToHsl(colors.background),
+      "important"
+    );
+    root.style.setProperty("--foreground", hexToHsl(colors.text), "important");
+    root.style.setProperty("--muted", hexToHsl(colors.muted), "important");
 
     // Set muted-foreground based on mode (this should be different from muted)
     if (mode === "light") {
-      root.style.setProperty("--muted-foreground", "25 5.3% 44.7%"); // Stone-500
+      root.style.setProperty(
+        "--muted-foreground",
+        "25 5.3% 44.7%",
+        "important"
+      ); // Stone-500
     } else {
-      root.style.setProperty("--muted-foreground", "24 5.4% 63.9%"); // Stone-400
+      root.style.setProperty(
+        "--muted-foreground",
+        "24 5.4% 63.9%",
+        "important"
+      ); // Stone-400
     }
 
     // Set additional CSS variables that components expect
-    root.style.setProperty("--card", hexToHsl(colors.background));
-    root.style.setProperty("--card-foreground", hexToHsl(colors.text));
-    root.style.setProperty("--popover", hexToHsl(colors.background));
-    root.style.setProperty("--popover-foreground", hexToHsl(colors.text));
-    root.style.setProperty("--border", hexToHsl(colors.muted));
-    root.style.setProperty("--input", hexToHsl(colors.muted));
-    root.style.setProperty("--ring", hexToHsl(colors.primary));
-    root.style.setProperty("--destructive", "0 84.2% 60.2%");
+    root.style.setProperty("--card", hexToHsl(colors.background), "important");
+    root.style.setProperty(
+      "--card-foreground",
+      hexToHsl(colors.text),
+      "important"
+    );
+    root.style.setProperty(
+      "--popover",
+      hexToHsl(colors.background),
+      "important"
+    );
+    root.style.setProperty(
+      "--popover-foreground",
+      hexToHsl(colors.text),
+      "important"
+    );
+    root.style.setProperty("--border", hexToHsl(colors.muted), "important");
+    root.style.setProperty("--input", hexToHsl(colors.muted), "important");
+    root.style.setProperty("--ring", hexToHsl(colors.primary), "important");
+    root.style.setProperty("--destructive", "0 84.2% 60.2%", "important");
     root.style.setProperty(
       "--destructive-foreground",
-      hexToHsl(colors.background)
+      hexToHsl(colors.background),
+      "important"
     );
-    root.style.setProperty("--radius", "0.5rem");
+    root.style.setProperty("--radius", "0.5rem", "important");
 
     // Set safari theme colors (these are used by public pages)
-    root.style.setProperty("--safari-orange", "25 95% 53%"); // Orange-500
-    root.style.setProperty("--safari-brown", "30 40% 25%");
-    root.style.setProperty("--safari-gold", "45 93% 58%");
-    root.style.setProperty("--safari-green", "120 40% 25%");
-    root.style.setProperty("--safari-red", "0 70% 50%");
-    root.style.setProperty("--safari-cream", "45 25% 90%");
-    root.style.setProperty("--safari-charcoal", "0 0% 20%");
+    root.style.setProperty("--safari-orange", "25 95% 53%", "important"); // Orange-500
+    root.style.setProperty("--safari-brown", "30 40% 25%", "important");
+    root.style.setProperty("--safari-gold", "45 93% 58%", "important");
+    root.style.setProperty("--safari-green", "120 40% 25%", "important");
+    root.style.setProperty("--safari-red", "0 70% 50%", "important");
+    root.style.setProperty("--safari-cream", "45 25% 90%", "important");
+    root.style.setProperty("--safari-charcoal", "0 0% 20%", "important");
 
     // Add mode-specific class
     root.classList.remove("theme-light", "theme-dark");
@@ -153,16 +188,10 @@ export const useThemeColors = () => {
     console.log("useThemeColors: applyCurrentTheme called with mode:", mode);
     console.log("useThemeColors: config available:", !!config);
 
-    if (!config) {
-      // Apply fallback colors if no config
-      console.log("useThemeColors: Using fallback colors");
-      const fallbackColors =
-        mode === "light" ? getDefaultColors() : getDefaultDarkColors();
-      applyThemeColors(fallbackColors, mode);
-      return;
-    }
-
-    const colors = config[mode];
+    // Always apply the correct colors for the mode, regardless of Firebase config
+    const colors =
+      config?.[mode] ||
+      (mode === "light" ? getDefaultColors() : getDefaultDarkColors());
     console.log("useThemeColors: Applying colors for mode:", mode, colors);
     applyThemeColors(colors, mode);
   };

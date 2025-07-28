@@ -49,9 +49,8 @@ export default function ThemeProvider({
 
   // Apply theme when config changes or mode changes
   useEffect(() => {
-    if (config && !isLoading) {
-      applyCurrentTheme(mode);
-    }
+    // Always apply theme, even if config is not loaded yet
+    applyCurrentTheme(mode);
   }, [config, mode, applyCurrentTheme, isLoading]);
 
   // Handle Tailwind CSS dark mode class

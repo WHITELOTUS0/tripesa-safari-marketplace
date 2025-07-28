@@ -311,7 +311,7 @@ export const getDefaultDarkColors = (): ThemeColors => ({
   primary: "#f97316", // Orange-500 (25 95% 53%) - keep orange for brand consistency
   secondary: "#1f2937", // Gray-800 (12 6.5% 15.1%)
   accent: "#1f2937", // Gray-800 (12 6.5% 15.1%)
-  background: "#292524", // Stone-800 (20 14.3% 4.1%)
+  background: "#0d0a09", // Darker background (20 14.3% 4.1%)
   text: "#f5f5f4", // Stone-100 (60 9.1% 97.8%)
   muted: "#a8a29e", // Stone-400 (24 5.4% 63.9%)
 });
