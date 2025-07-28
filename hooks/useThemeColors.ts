@@ -67,6 +67,7 @@ export const useThemeColors = () => {
   const [config, setConfig] = useState<ThemeConfig | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [lastAppliedTheme, setLastAppliedTheme] = useState<string>("");
 
   useEffect(() => {
     loadThemeConfig();
@@ -192,8 +193,31 @@ export const useThemeColors = () => {
     const colors =
       config?.[mode] ||
       (mode === "light" ? getDefaultColors() : getDefaultDarkColors());
+    const themeKey = `${mode}-${JSON.stringify(colors)}`;
+
+    // Prevent duplicate applications
+    if (lastAppliedTheme === themeKey) {
+      console.log("useThemeColors: Theme already applied, skipping");
+      return;
+    }
+
     console.log("useThemeColors: Applying colors for mode:", mode, colors);
     applyThemeColors(colors, mode);
+    setLastAppliedTheme(themeKey);
+
+    // Log the actual CSS variables after application
+    setTimeout(() => {
+      const root = document.documentElement;
+      console.log("useThemeColors: Current CSS variables after application:");
+      console.log(
+        "--background:",
+        getComputedStyle(root).getPropertyValue("--background")
+      );
+      console.log(
+        "--foreground:",
+        getComputedStyle(root).getPropertyValue("--foreground")
+      );
+    }, 100);
   };
 
   const refreshTheme = () => {
