@@ -35,19 +35,19 @@ export default function Footer() {
             <div className="flex space-x-4">
               <Link
                 href="#"
-                className="text-muted-foreground hover:text-orange-500 transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link
                 href="#"
-                className="text-muted-foreground hover:text-orange-500 transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
               <Link
                 href="#"
-                className="text-muted-foreground hover:text-orange-500 transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </Link>
@@ -60,25 +60,25 @@ export default function Footer() {
             <div className="space-y-2">
               <Link
                 href="/tours"
-                className="block text-muted-foreground hover:text-orange-500 transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-colors"
               >
                 Browse Tours
               </Link>
               <Link
                 href="/destinations"
-                className="block text-muted-foreground hover:text-orange-500 transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-colors"
               >
                 Destinations
               </Link>
               <Link
                 href="/about"
-                className="block text-muted-foreground hover:text-orange-500 transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-colors"
               >
                 About Us
               </Link>
               <Link
                 href="/contact"
-                className="block text-muted-foreground hover:text-orange-500 transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-colors"
               >
                 Contact
               </Link>
@@ -91,25 +91,25 @@ export default function Footer() {
             <div className="space-y-2">
               <Link
                 href="/tours?destination=uganda"
-                className="block text-muted-foreground hover:text-orange-500 transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-colors"
               >
                 Uganda
               </Link>
               <Link
                 href="/tours?destination=tanzania"
-                className="block text-muted-foreground hover:text-orange-500 transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-colors"
               >
                 Tanzania
               </Link>
               <Link
                 href="/tours?destination=kenya"
-                className="block text-muted-foreground hover:text-orange-500 transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-colors"
               >
                 Kenya
               </Link>
               <Link
                 href="/tours?destination=rwanda"
-                className="block text-muted-foreground hover:text-orange-500 transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-colors"
               >
                 Rwanda
               </Link>
@@ -121,11 +121,11 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
-                <Mail className="h-4 w-4 text-orange-500 mt-1" />
+                <Mail className="h-4 w-4 text-primary mt-1" />
                 <span className="text-muted-foreground">hello@tripesa.co</span>
               </div>
               <div className="flex items-start space-x-3">
-                <Phone className="h-4 w-4 text-orange-500 mt-1" />
+                <Phone className="h-4 w-4 text-primary mt-1" />
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">
                     +256 200 948 137
@@ -134,7 +134,7 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="h-4 w-4 text-orange-500 mt-1" />
+                <MapPin className="h-4 w-4 text-primary mt-1" />
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">
                     Plot 27, Bandali Rise, Bugolobi, Kampala Uganda
@@ -155,13 +155,13 @@ export default function Footer() {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link
               href="/privacy"
-              className="text-muted-foreground hover:text-orange-500 text-sm transition-colors"
+              className="text-muted-foreground hover:text-primary text-sm transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-muted-foreground hover:text-orange-500 text-sm transition-colors"
+              className="text-muted-foreground hover:text-primary text-sm transition-colors"
             >
               Terms of Service
             </Link>

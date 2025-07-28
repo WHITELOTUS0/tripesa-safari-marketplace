@@ -148,7 +148,7 @@ export default function AISearchInterface({
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b">
           <div className="flex items-center space-x-2">
-            <Sparkles className="h-5 w-5 text-orange-500" />
+            <Sparkles className="h-5 w-5 text-primary" />
             <h3 className="text-lg font-semibold">AI Safari Assistant</h3>
           </div>
           <Button variant="ghost" size="icon" onClick={onClose}>
@@ -160,7 +160,7 @@ export default function AISearchInterface({
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {messages.length === 0 && (
             <div className="text-center text-muted-foreground py-8">
-              <Sparkles className="h-12 w-12 mx-auto mb-4 text-orange-500" />
+              <Sparkles className="h-12 w-12 mx-auto mb-4 text-primary" />
               <p>
                 Ask me anything about safaris, destinations, or tour packages!
               </p>
@@ -177,7 +177,7 @@ export default function AISearchInterface({
               <div
                 className={`max-w-[80%] p-3 rounded-lg ${
                   message.type === "user"
-                    ? "bg-orange-500 text-white"
+                    ? "bg-primary text-white"
                     : "bg-muted text-foreground"
                 }`}
               >

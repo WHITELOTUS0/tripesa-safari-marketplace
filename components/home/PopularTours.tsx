@@ -27,7 +27,7 @@ export default async function PopularTours() {
           <Link href="/tours">
             <Button
               size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-8"
+              className="bg-primary hover:bg-primary/90 text-white px-8"
             >
               View All Tours
             </Button>

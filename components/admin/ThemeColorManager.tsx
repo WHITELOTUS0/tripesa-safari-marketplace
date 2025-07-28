@@ -128,7 +128,7 @@ export default function ThemeColorManager() {
       );
 
       logConfigUpdate("theme", "colors");
-      toast.success("Theme configuration saved successfully!");
+      toast.success("Site theme updated successfully!");
       setDescription("");
 
       // Reload config to get updated version
@@ -171,7 +171,7 @@ export default function ThemeColorManager() {
       );
 
       logConfigUpdate("theme", "reset");
-      toast.info("Theme colors reset to default");
+      toast.info("Site theme reset to default");
     } catch (error) {
       console.error("Error resetting theme colors:", error);
       toast.error("Failed to reset theme colors");
@@ -268,10 +268,10 @@ export default function ThemeColorManager() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Theme Colors
+            Site Theme
           </h1>
           <p className="mt-2 text-gray-600 dark:text-gray-400">
-            Customize the color scheme for both light and dark modes.
+            Customize the color scheme for the entire site.
           </p>
           {config && (
             <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
@@ -607,19 +607,19 @@ export default function ThemeColorManager() {
                         ...prev,
                         light: {
                           primary: "#f97316",
-                          secondary: "#64748b",
-                          accent: "#8b5cf6",
+                          secondary: "#f5f5f4",
+                          accent: "#f5f5f4",
                           background: "#ffffff",
-                          text: "#1f2937",
-                          muted: "#6b7280",
+                          text: "#292524",
+                          muted: "#78716c",
                         },
                         dark: {
                           primary: "#f97316",
-                          secondary: "#94a3b8",
-                          accent: "#a78bfa",
-                          background: "#0f172a",
-                          text: "#f1f5f9",
-                          muted: "#64748b",
+                          secondary: "#1f2937",
+                          accent: "#1f2937",
+                          background: "#292524",
+                          text: "#f5f5f4",
+                          muted: "#a8a29e",
                         },
                       }
                     : null
@@ -629,46 +629,10 @@ export default function ThemeColorManager() {
             >
               <div className="flex space-x-1 mb-2">
                 <div className="w-4 h-4 bg-orange-500 rounded"></div>
-                <div className="w-4 h-4 bg-slate-500 rounded"></div>
-                <div className="w-4 h-4 bg-purple-500 rounded"></div>
+                <div className="w-4 h-4 bg-stone-100 rounded"></div>
+                <div className="w-4 h-4 bg-stone-100 rounded"></div>
               </div>
-              Safari Orange
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => {
-                setConfig((prev) =>
-                  prev
-                    ? {
-                        ...prev,
-                        light: {
-                          primary: "#059669",
-                          secondary: "#475569",
-                          accent: "#7c3aed",
-                          background: "#ffffff",
-                          text: "#1f2937",
-                          muted: "#6b7280",
-                        },
-                        dark: {
-                          primary: "#10b981",
-                          secondary: "#64748b",
-                          accent: "#8b5cf6",
-                          background: "#0f172a",
-                          text: "#f1f5f9",
-                          muted: "#64748b",
-                        },
-                      }
-                    : null
-                );
-              }}
-              className="h-20 flex-col dark:border-gray-600 dark:text-white dark:hover:bg-gray-700"
-            >
-              <div className="flex space-x-1 mb-2">
-                <div className="w-4 h-4 bg-emerald-600 rounded"></div>
-                <div className="w-4 h-4 bg-slate-600 rounded"></div>
-                <div className="w-4 h-4 bg-violet-600 rounded"></div>
-              </div>
-              Forest Green
+              Current Theme
             </Button>
             <Button
               variant="outline"
@@ -679,19 +643,19 @@ export default function ThemeColorManager() {
                         ...prev,
                         light: {
                           primary: "#dc2626",
-                          secondary: "#374151",
-                          accent: "#9333ea",
+                          secondary: "#f5f5f4",
+                          accent: "#f5f5f4",
                           background: "#ffffff",
-                          text: "#1f2937",
-                          muted: "#6b7280",
+                          text: "#292524",
+                          muted: "#78716c",
                         },
                         dark: {
                           primary: "#ef4444",
-                          secondary: "#6b7280",
-                          accent: "#a855f7",
-                          background: "#0f172a",
-                          text: "#f1f5f9",
-                          muted: "#64748b",
+                          secondary: "#1f2937",
+                          accent: "#1f2937",
+                          background: "#292524",
+                          text: "#f5f5f4",
+                          muted: "#a8a29e",
                         },
                       }
                     : null
@@ -701,10 +665,46 @@ export default function ThemeColorManager() {
             >
               <div className="flex space-x-1 mb-2">
                 <div className="w-4 h-4 bg-red-600 rounded"></div>
-                <div className="w-4 h-4 bg-gray-700 rounded"></div>
-                <div className="w-4 h-4 bg-purple-600 rounded"></div>
+                <div className="w-4 h-4 bg-stone-100 rounded"></div>
+                <div className="w-4 h-4 bg-stone-100 rounded"></div>
               </div>
               Sunset Red
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setConfig((prev) =>
+                  prev
+                    ? {
+                        ...prev,
+                        light: {
+                          primary: "#059669",
+                          secondary: "#f5f5f4",
+                          accent: "#f5f5f4",
+                          background: "#ffffff",
+                          text: "#292524",
+                          muted: "#78716c",
+                        },
+                        dark: {
+                          primary: "#10b981",
+                          secondary: "#1f2937",
+                          accent: "#1f2937",
+                          background: "#292524",
+                          text: "#f5f5f4",
+                          muted: "#a8a29e",
+                        },
+                      }
+                    : null
+                );
+              }}
+              className="h-20 flex-col dark:border-gray-600 dark:text-white dark:hover:bg-gray-700"
+            >
+              <div className="flex space-x-1 mb-2">
+                <div className="w-4 h-4 bg-emerald-600 rounded"></div>
+                <div className="w-4 h-4 bg-stone-100 rounded"></div>
+                <div className="w-4 h-4 bg-stone-100 rounded"></div>
+              </div>
+              Forest Green
             </Button>
           </div>
         </CardContent>

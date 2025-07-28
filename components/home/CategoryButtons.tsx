@@ -12,7 +12,7 @@ const CategoryButtons = () => {
     <div className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-base text-orange-600 font-semibold tracking-wide uppercase">
+          <h2 className="text-base text-primary font-semibold tracking-wide uppercase">
             Categories
           </h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -33,7 +33,7 @@ const CategoryButtons = () => {
                 onClick={() =>
                   logButtonClick(category.name, "category_buttons")
                 }
-                className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
+                className="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
               >
                 {category.name}
               </Link>

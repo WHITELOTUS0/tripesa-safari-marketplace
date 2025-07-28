@@ -17,7 +17,12 @@ export interface ThemeConfig {
 }
 
 // Helper function to convert hex to HSL
-const hexToHsl = (hex: string): string => {
+const hexToHsl = (hex: string | undefined): string => {
+  // Handle undefined or null values
+  if (!hex) {
+    return "0 0% 0%"; // Default black
+  }
+
   // Remove the # if present
   hex = hex.replace("#", "");
 
@@ -107,7 +112,37 @@ export const useThemeColors = () => {
     root.style.setProperty("--background", hexToHsl(colors.background));
     root.style.setProperty("--foreground", hexToHsl(colors.text));
     root.style.setProperty("--muted", hexToHsl(colors.muted));
-    root.style.setProperty("--muted-foreground", hexToHsl(colors.muted));
+
+    // Set muted-foreground based on mode (this should be different from muted)
+    if (mode === "light") {
+      root.style.setProperty("--muted-foreground", "25 5.3% 44.7%"); // Stone-500
+    } else {
+      root.style.setProperty("--muted-foreground", "24 5.4% 63.9%"); // Stone-400
+    }
+
+    // Set additional CSS variables that components expect
+    root.style.setProperty("--card", hexToHsl(colors.background));
+    root.style.setProperty("--card-foreground", hexToHsl(colors.text));
+    root.style.setProperty("--popover", hexToHsl(colors.background));
+    root.style.setProperty("--popover-foreground", hexToHsl(colors.text));
+    root.style.setProperty("--border", hexToHsl(colors.muted));
+    root.style.setProperty("--input", hexToHsl(colors.muted));
+    root.style.setProperty("--ring", hexToHsl(colors.primary));
+    root.style.setProperty("--destructive", "0 84.2% 60.2%");
+    root.style.setProperty(
+      "--destructive-foreground",
+      hexToHsl(colors.background)
+    );
+    root.style.setProperty("--radius", "0.5rem");
+
+    // Set safari theme colors (these are used by public pages)
+    root.style.setProperty("--safari-orange", "25 95% 53%"); // Orange-500
+    root.style.setProperty("--safari-brown", "30 40% 25%");
+    root.style.setProperty("--safari-gold", "45 93% 58%");
+    root.style.setProperty("--safari-green", "120 40% 25%");
+    root.style.setProperty("--safari-red", "0 70% 50%");
+    root.style.setProperty("--safari-cream", "45 25% 90%");
+    root.style.setProperty("--safari-charcoal", "0 0% 20%");
 
     // Add mode-specific class
     root.classList.remove("theme-light", "theme-dark");

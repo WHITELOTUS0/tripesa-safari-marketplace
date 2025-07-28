@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import React from "react";
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
@@ -10,6 +10,29 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { FilterState } from "@/lib/types";
+import * as SliderPrimitive from "@radix-ui/react-slider";
+import { cn } from "@/lib/utils";
+
+// Custom neutral slider for filters
+const FilterSlider = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <SliderPrimitive.Root
+    ref={ref}
+    className={cn(
+      "relative flex w-full touch-none select-none items-center",
+      className
+    )}
+    {...props}
+  >
+    <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
+      <SliderPrimitive.Range className="absolute h-full bg-muted-foreground" />
+    </SliderPrimitive.Track>
+    <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border-2 border-muted-foreground bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" />
+  </SliderPrimitive.Root>
+));
+FilterSlider.displayName = SliderPrimitive.Root.displayName;
 
 interface FilterSidebarProps {
   filters: FilterState;
@@ -123,6 +146,7 @@ export default function FilterSidebar({
                     );
                   }
                 }}
+                className="checkbox-neutral"
               />
               <Label htmlFor={destination} className="text-sm">
                 {destination}
@@ -135,7 +159,7 @@ export default function FilterSidebar({
       <FilterSection title="Duration" section="duration">
         <div className="space-y-4">
           <div className="px-2">
-            <Slider
+            <FilterSlider
               value={filters.duration}
               onValueChange={(value) => updateFilter("duration", value)}
               max={30}
@@ -158,7 +182,7 @@ export default function FilterSidebar({
       <FilterSection title="Price Range" section="price">
         <div className="space-y-4">
           <div className="px-2">
-            <Slider
+            <FilterSlider
               value={filters.priceRange}
               onValueChange={(value) => updateFilter("priceRange", value)}
               max={10000}
@@ -191,6 +215,7 @@ export default function FilterSidebar({
                     );
                   }
                 }}
+                className="checkbox-neutral"
               />
               <Label htmlFor={type} className="text-sm">
                 {type}

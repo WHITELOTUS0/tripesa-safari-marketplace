@@ -123,7 +123,7 @@ export interface ThemeVersion {
   createdBy: string;
   createdByName: string;
   version: number;
-  description?: string;
+  description?: string | null;
   isActive: boolean;
 }
 
@@ -191,7 +191,7 @@ export const saveThemeConfig = async (
       createdBy: userId,
       createdByName: userName,
       version: newVersion,
-      description,
+      description: description || null,
       isActive: true,
     };
 
@@ -299,21 +299,21 @@ export const rollbackToVersion = async (
 };
 
 export const getDefaultColors = (): ThemeColors => ({
-  primary: "#f97316", // Orange
-  secondary: "#64748b", // Slate
-  accent: "#8b5cf6", // Purple
-  background: "#ffffff", // White
-  text: "#1f2937", // Gray-800
-  muted: "#6b7280", // Gray-500
+  primary: "#f97316", // Orange-500 (25 95% 53%)
+  secondary: "#f5f5f4", // Stone-100 (60 4.8% 95.9%)
+  accent: "#f5f5f4", // Stone-100 (60 4.8% 95.9%)
+  background: "#ffffff", // White (0 0% 100%)
+  text: "#292524", // Stone-800 (20 14.3% 4.1%)
+  muted: "#78716c", // Stone-500 (25 5.3% 44.7%)
 });
 
 export const getDefaultDarkColors = (): ThemeColors => ({
-  primary: "#f97316", // Orange
-  secondary: "#94a3b8", // Slate-400
-  accent: "#a78bfa", // Purple-400
-  background: "#0f172a", // Slate-900
-  text: "#f1f5f9", // Slate-100
-  muted: "#64748b", // Slate-500
+  primary: "#f97316", // Orange-500 (25 95% 53%) - keep orange for brand consistency
+  secondary: "#1f2937", // Gray-800 (12 6.5% 15.1%)
+  accent: "#1f2937", // Gray-800 (12 6.5% 15.1%)
+  background: "#292524", // Stone-800 (20 14.3% 4.1%)
+  text: "#f5f5f4", // Stone-100 (60 9.1% 97.8%)
+  muted: "#a8a29e", // Stone-400 (24 5.4% 63.9%)
 });
 
 // Enhanced Banner Management

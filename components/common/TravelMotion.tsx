@@ -60,7 +60,7 @@ export default function TravelMotion({
       case "plane":
         return (
           <motion.div
-            className="bg-orange-500/20 p-4 rounded-full"
+            className="bg-primary/20 p-4 rounded-full"
             animate={{
               y: [0, -20, 0],
               rotate: [0, 15, 0],
@@ -71,13 +71,13 @@ export default function TravelMotion({
               ease: "easeInOut",
             }}
           >
-            <Plane className={`${getSizeClass()} text-orange-500`} />
+            <Plane className={`${getSizeClass()} text-primary`} />
           </motion.div>
         );
       case "car":
         return (
           <motion.div
-            className="bg-orange-500/20 p-4 rounded-full"
+            className="bg-primary/20 p-4 rounded-full"
             animate={{
               x: [-50, 50, -50],
             }}
@@ -87,13 +87,13 @@ export default function TravelMotion({
               ease: "easeInOut",
             }}
           >
-            <Car className={`${getSizeClass()} text-orange-500`} />
+            <Car className={`${getSizeClass()} text-primary`} />
           </motion.div>
         );
       case "bicycle":
         return (
           <motion.div
-            className="bg-orange-500/20 p-4 rounded-full"
+            className="bg-primary/20 p-4 rounded-full"
             animate={{
               rotate: [0, 360],
               scale: [1, 1.1, 1],
@@ -104,7 +104,7 @@ export default function TravelMotion({
               ease: "linear",
             }}
           >
-            <Bike className={`${getSizeClass()} text-orange-500`} />
+            <Bike className={`${getSizeClass()} text-primary`} />
           </motion.div>
         );
     }

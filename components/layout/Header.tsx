@@ -56,25 +56,25 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="/tours"
-              className={`${textColorClass} hover:text-orange-500 transition-colors`}
+              className={`${textColorClass} hover:text-primary transition-colors`}
             >
               Tours
             </Link>
             <Link
               href="/destinations"
-              className={`${textColorClass} hover:text-orange-500 transition-colors`}
+              className={`${textColorClass} hover:text-primary transition-colors`}
             >
               Destinations
             </Link>
             <Link
               href="/about"
-              className={`${textColorClass} hover:text-orange-500 transition-colors`}
+              className={`${textColorClass} hover:text-primary transition-colors`}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className={`${textColorClass} hover:text-orange-500 transition-colors`}
+              className={`${textColorClass} hover:text-primary transition-colors`}
             >
               Contact
             </Link>
@@ -127,25 +127,25 @@ export default function Header() {
             <nav className="flex flex-col space-y-4">
               <Link
                 href="/tours"
-                className="text-foreground hover:text-orange-500 transition-colors"
+                className="text-foreground hover:text-primary transition-colors"
               >
                 Tours
               </Link>
               <Link
                 href="/destinations"
-                className="text-foreground hover:text-orange-500 transition-colors"
+                className="text-foreground hover:text-primary transition-colors"
               >
                 Destinations
               </Link>
               <Link
                 href="/about"
-                className="text-foreground hover:text-orange-500 transition-colors"
+                className="text-foreground hover:text-primary transition-colors"
               >
                 About
               </Link>
               <Link
                 href="/contact"
-                className="text-foreground hover:text-orange-500 transition-colors"
+                className="text-foreground hover:text-primary transition-colors"
               >
                 Contact
               </Link>

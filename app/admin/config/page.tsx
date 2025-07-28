@@ -7,8 +7,8 @@ import Link from "next/link";
 export default function ConfigPage() {
   const configOptions = [
     {
-      title: "Theme Colors",
-      description: "Customize website color scheme and branding",
+      title: "Site Theme",
+      description: "Customize the color scheme for the entire website",
       icon: Palette,
       href: "/admin/theme",
       color: "text-purple-600 bg-purple-100 dark:bg-purple-900/30",

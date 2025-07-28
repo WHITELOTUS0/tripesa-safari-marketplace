@@ -12,6 +12,7 @@ import {
   Eye,
   Activity,
   RefreshCw,
+  BarChart3,
 } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
@@ -134,18 +135,32 @@ export default function DashboardOverview() {
 
   const quickActions = [
     {
-      title: "Manage Theme Colors",
-      description: "Update the site's color scheme and branding",
-      icon: Palette,
+      title: "Manage Site Theme",
+      description: "Customize colors for the entire website",
       href: "/admin/theme",
-      color: "bg-gradient-to-r from-purple-500 to-pink-500",
+      icon: Palette,
+      color: "text-purple-600 bg-purple-100 dark:bg-purple-900/30",
     },
     {
-      title: "Update Home Banner",
-      description: "Change the main hero banner image and content",
-      icon: Image,
+      title: "Update Banner",
+      description: "Change hero section images and content",
       href: "/admin/banner",
-      color: "bg-gradient-to-r from-blue-500 to-cyan-500",
+      icon: Image,
+      color: "text-blue-600 bg-blue-100 dark:bg-blue-900/30",
+    },
+    {
+      title: "View Analytics",
+      description: "Check website performance and user data",
+      href: "/admin/analytics",
+      icon: BarChart3,
+      color: "text-green-600 bg-green-100 dark:bg-green-900/30",
+    },
+    {
+      title: "Manage Users",
+      description: "Add or remove admin users",
+      href: "/admin/users",
+      icon: Users,
+      color: "text-orange-600 bg-orange-100 dark:bg-orange-900/30",
     },
   ];
 
@@ -218,9 +233,7 @@ export default function DashboardOverview() {
               <Card className="hover:shadow-lg transition-all duration-200 cursor-pointer group dark:bg-gray-800 dark:border-gray-700">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4">
-                    <div
-                      className={`p-3 rounded-lg ${action.color} text-white`}
-                    >
+                    <div className={`p-3 rounded-lg ${action.color}`}>
                       <action.icon className="h-6 w-6" />
                     </div>
                     <div className="flex-1">

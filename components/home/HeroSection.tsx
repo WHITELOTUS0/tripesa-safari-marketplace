@@ -96,7 +96,7 @@ export default function HeroSection() {
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4 pt-16">
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
           {mainTitle}
-          <span className="block text-orange-400">{subtitle}</span>
+          <span className="block text-primary">{subtitle}</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-2xl mx-auto">
@@ -107,7 +107,7 @@ export default function HeroSection() {
         <div className="max-w-2xl mx-auto mb-8">
           <div className="relative">
             <div className="flex items-center bg-white/95 backdrop-blur rounded-2xl p-2 shadow-2xl">
-              <Sparkles className="h-6 w-6 text-orange-500 ml-4 mr-3" />
+              <Sparkles className="h-6 w-6 text-primary ml-4 mr-3" />
               <Input
                 placeholder="Ask me anything about safaris, tours, or destinations..."
                 value={searchQuery}
@@ -120,7 +120,7 @@ export default function HeroSection() {
               </Button>
               <Button
                 size="lg"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 rounded-xl"
+                className="bg-primary hover:bg-primary/90 text-white px-8 rounded-xl"
                 onClick={() => setShowAISearch(true)}
               >
                 <Search className="h-5 w-5 mr-2" />
@@ -149,7 +149,7 @@ export default function HeroSection() {
           <Link href="/tours">
             <Button
               size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg rounded-xl"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg rounded-xl"
               onClick={() => logButtonClick("Explore Tours", "hero_section")}
             >
               Explore Tours

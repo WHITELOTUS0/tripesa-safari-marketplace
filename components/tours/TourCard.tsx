@@ -59,7 +59,7 @@ export default function TourCard({ tour, viewMode }: TourCardProps) {
       {isLongDescription && (
         <button
           onClick={toggleExpansion}
-          className="text-orange-500 hover:underline font-bold mt-1 inline-block bg-transparent border-none p-0 cursor-pointer"
+          className="text-primary hover:underline font-bold mt-1 inline-block bg-transparent border-none p-0 cursor-pointer"
         >
           {isExpanded ? "View Less" : "View More"}
         </button>
@@ -85,14 +85,14 @@ export default function TourCard({ tour, viewMode }: TourCardProps) {
             </Link>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute top-4 left-4">
-              <Badge className="bg-orange-500 text-white">{price}</Badge>
+              <Badge className="bg-primary text-white">{price}</Badge>
             </div>
           </div>
           <CardContent className="flex-1 p-6 flex flex-col">
             <div className="flex-grow">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center space-x-1">
-                  <MapPin className="h-4 w-4 text-orange-500" />
+                  <MapPin className="h-4 w-4 text-primary" />
                   <span className="text-sm text-muted-foreground">
                     {tour.city}
                   </span>
@@ -105,7 +105,7 @@ export default function TourCard({ tour, viewMode }: TourCardProps) {
                   </span>
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-3 hover:text-orange-500 transition-colors">
+              <h3 className="text-xl font-bold mb-3 hover:text-primary transition-colors">
                 <Link href={tourUrl}>{tour.title}</Link>
               </h3>
               {descriptionElement}
@@ -132,7 +132,7 @@ export default function TourCard({ tour, viewMode }: TourCardProps) {
                 <Button
                   asChild
                   size="sm"
-                  className="bg-orange-500 hover:bg-orange-600"
+                  className="bg-primary hover:bg-primary/90"
                   onClick={() => {
                     logTourBookingClick(
                       tour.id.toString(),
@@ -163,7 +163,7 @@ export default function TourCard({ tour, viewMode }: TourCardProps) {
         </Link>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute top-4 left-4">
-          <Badge className="bg-orange-500 text-white">{price}</Badge>
+          <Badge className="bg-primary text-white">{price}</Badge>
         </div>
         <div className="absolute bottom-4 left-4 right-4 text-white">
           <div className="flex items-center space-x-4 text-sm mb-2">
@@ -182,7 +182,7 @@ export default function TourCard({ tour, viewMode }: TourCardProps) {
         <div className="flex-grow">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center space-x-1">
-              <MapPin className="h-4 w-4 text-orange-500" />
+              <MapPin className="h-4 w-4 text-primary" />
               <span className="text-sm text-muted-foreground">{tour.city}</span>
             </div>
             <div className="flex items-center space-x-1">
@@ -193,7 +193,7 @@ export default function TourCard({ tour, viewMode }: TourCardProps) {
               </span>
             </div>
           </div>
-          <h3 className="text-xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
+          <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
             <Link href={tourUrl}>{tour.title}</Link>
           </h3>
           {descriptionElement}
@@ -206,7 +206,7 @@ export default function TourCard({ tour, viewMode }: TourCardProps) {
             <Button
               asChild
               size="sm"
-              className="bg-orange-500 hover:bg-orange-600"
+              className="bg-primary hover:bg-primary/90"
               onClick={() => {
                 logTourBookingClick(
                   tour.id.toString(),
